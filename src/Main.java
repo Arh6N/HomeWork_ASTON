@@ -7,11 +7,11 @@ public class Main {
         checkSumSign();
         printColor();
         compareNumbers();
-        System.out.println(sumLimit(4, 5));
+        System.out.println(sumLimit(10, 9));
         numberPositiveOrNegative(-21);
-        System.out.println(isNumberNegative(-6));
+        System.out.println(isNumberNegative(6));
         lineSeveralTimes("lalalal", 10);
-        System.out.println(isYearLeap(2200));
+        System.out.println(isYearLeap(800));
         arrElementsChanger();
         arrElementsPlaceholder();
         arrElementsMultiplication();
@@ -36,10 +36,10 @@ public class Main {
     }
 
     static void printColor() {
-        int value = 10689;
+        int value = 1;
         if (value <= 0) {
             System.out.println("Red");
-        } else if (value > 0 && value <= 100) {
+        } else if (value <= 100) {
             System.out.println("Yellow");
         } else {
             System.out.println("Green");
@@ -57,12 +57,7 @@ public class Main {
     }
 
     static Boolean sumLimit(int num_1, int num_2) {
-        int sum = num_1 + num_2;
-        if (sum >= 10 && sum <= 20) {
-            return true;
-        } else {
-            return false;
-        }
+            return num_1 + num_2 >= 10 && num_1 + num_2 <= 20;
     }
 
     static void numberPositiveOrNegative(int num) {
@@ -74,13 +69,7 @@ public class Main {
     }
 
     static Boolean isNumberNegative(int num) {
-        if (num < 0) {
-            return true;
-        } else if (num > 0) {
-            return false;
-        } else {
-            return false;
-        }
+        return num < 0;
     }
 
     static void lineSeveralTimes(String line, int quantity) {
@@ -90,13 +79,7 @@ public class Main {
     }
 
     static Boolean isYearLeap(int year) {
-        if (year % 400 == 0) {
-            return true;
-        } else if ((year % 4 == 0) && (year % 100 != 0)) {
-            return true;
-        } else {
-            return false;
-        }
+        return (year % 400 == 0) || (year % 4 == 0) && (year % 100 != 0);
     }
 
     static void arrElementsChanger() {
