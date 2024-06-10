@@ -1,7 +1,3 @@
-import java.lang.reflect.Array;
-import java.sql.SQLOutput;
-import java.util.Arrays;
-
 public class Main {
     public static void main(String[] args) {
         Cat[] cats = new Cat[5];
@@ -16,7 +12,7 @@ public class Main {
             cats[i].info();
         }
         Circle circle = new Circle(3);
-        Triangle triangle = new Triangle(5, 6,6);
+        Triangle triangle = new Triangle(5, 6, 6);
         Rectangle rectangle = new Rectangle(7, 8);
         circle.Parameters();
         triangle.Parameters();

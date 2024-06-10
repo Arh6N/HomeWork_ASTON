@@ -1,5 +1,7 @@
 public interface PerimeterAndArea {
-        double Area();
-        double Perimeter();
-        void Parameters();
-    }
+    double Area();
+
+    double Perimeter();
+
+    void Parameters();
+}

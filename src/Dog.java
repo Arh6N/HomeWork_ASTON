@@ -1,7 +1,8 @@
 public class Dog extends Animal {
     private String name;
     private static int countOfDogs;
-    public Dog(String name){
+
+    public Dog(String name) {
         this.name = name;
         countOfDogs += 1;
     }
@@ -14,6 +15,7 @@ public class Dog extends Animal {
             System.out.println(name + "пробежал" + distance + "м");
         }
     }
+
     @Override
     public void swim(int distance) {
         if (distance > 10) {
@@ -22,6 +24,7 @@ public class Dog extends Animal {
             System.out.println(name + "проплыл" + distance + "м");
         }
     }
+
     @Override
     public void countOfAnimals() {
         System.out.println("Количество собак: " + countOfDogs);
