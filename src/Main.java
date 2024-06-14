@@ -14,9 +14,9 @@ public class Main {
         Circle circle = new Circle(3);
         Triangle triangle = new Triangle(5, 6, 6);
         Rectangle rectangle = new Rectangle(7, 8);
-        circle.Parameters();
-        triangle.Parameters();
-        rectangle.Parameters();
+        circle.parameters();
+        triangle.parameters();
+        rectangle.parameters();
     }
 }
 

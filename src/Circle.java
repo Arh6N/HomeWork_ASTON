@@ -11,15 +11,19 @@ public class Circle implements PerimeterAndArea {
         this.borderColor = "Синий";
     }
 
-    public double Area() {
+    public String getFillColor() {
+        return fillColor;
+    }
+
+    public String getBorderColor() {
+        return borderColor;
+    }
+
+    public double area() {
         return r * r * pi;
     }
 
-    public double Perimeter() {
+    public double perimeter() {
         return 2 * r * pi;
-    }
-
-    public void Parameters() {
-        System.out.println("Периметр: " + Perimeter() + ", Площадь: " + Area() + ", цвет фона: " + fillColor + ", цвет границ: " + borderColor);
     }
 }

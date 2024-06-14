@@ -11,15 +11,20 @@ public class Rectangle implements PerimeterAndArea {
         this.borderColor = "Чёрный";
     }
 
-    public double Perimeter() {
+
+    public String getFillColor() {
+        return fillColor;
+    }
+
+    public String getBorderColor() {
+        return borderColor;
+    }
+
+    public double perimeter() {
         return 2 * (a + b);
     }
 
-    public double Area() {
+    public double area() {
         return a * b;
-    }
-
-    public void Parameters() {
-        System.out.println("Периметр: " + Perimeter() + ", Площадь: " + Area() + ", цвет фона: " + fillColor + ", цвет границ: " + borderColor);
     }
 }

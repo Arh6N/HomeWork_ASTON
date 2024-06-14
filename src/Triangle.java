@@ -9,19 +9,23 @@ public class Triangle implements PerimeterAndArea {
         this.a = a;
         this.b = b;
         this.c = c;
-        this.fillColor = "Зелёный";
-        this.borderColor = "Жёлтый";
+        fillColor = "Зелёный";
+        borderColor = "Жёлтый";
     }
 
-    public double Perimeter() {
+    public String getFillColor() {
+        return fillColor;
+    }
+
+    public String getBorderColor() {
+        return borderColor;
+    }
+
+    public double perimeter() {
         return a + b + c;
     }
 
-    public double Area() {
-        return Math.sqrt(Perimeter() * 0.5 * (Perimeter() * 0.5 - a) * (Perimeter() * 0.5 - b) * (Perimeter() * 0.5 - c));
-    }
-
-    public void Parameters() {
-        System.out.println("Периметр: " + Perimeter() + ", Площадь: " + Area() + ", цвет фона: " + fillColor + ", цвет границ: " + borderColor);
+    public double area() {
+        return Math.sqrt(perimeter() * 0.5 * (perimeter() * 0.5 - a) * (perimeter() * 0.5 - b) * (perimeter() * 0.5 - c));
     }
 }

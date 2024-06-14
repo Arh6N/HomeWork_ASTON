@@ -1,7 +1,13 @@
 public interface PerimeterAndArea {
-    double Area();
+    double area();
 
-    double Perimeter();
+    double perimeter();
 
-    void Parameters();
+    String getFillColor();
+
+    String getBorderColor();
+
+    default void parameters() {
+        System.out.println("Периметр: " + perimeter() + ", Площадь: " + area() + ", цвет фона: " + getFillColor() + ", цвет границ: " + getBorderColor());
+    }
 }
