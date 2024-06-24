@@ -2,21 +2,21 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class PhoneBook {
-    private HashMap<String, ArrayList<String>> contakt = new HashMap<>();
+    private HashMap<String, String> contakt = new HashMap<>();
 
     public void addContact(String lastName, String phoneNumber) {
-        if (contakt.get(lastName) != null) {
-            if (contakt.get(lastName).contains(phoneNumber) != true) {
-                contakt.get(lastName).add(phoneNumber);
-            }
-        } else {
-            ArrayList<String> numbers = new ArrayList<>();
-            numbers.add(phoneNumber);
-            contakt.put(lastName, numbers);
+        if (!contakt.containsKey(phoneNumber)) {
+            contakt.put(phoneNumber, lastName);
         }
     }
 
     public void getContact(String lastName) {
-        System.out.println("Имя:" + lastName + ", контактный телефон:" + contakt.get(lastName));
+        ArrayList<String> keys = new ArrayList<>();
+        contakt.forEach((k, val) -> {
+            if (val.equals(lastName)) {
+                keys.add(k);
+            }
+        });
+        System.out.println("Имя:" + lastName + " Контактный телефон:" + keys);
     }
 }
