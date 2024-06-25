@@ -1,18 +1,23 @@
-
 import org.junit.jupiter.api.Test;
+
 import java.math.BigInteger;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 class FactorialCalcTest {
     @org.junit.jupiter.api.Test
     public void factorialTestOne() {
         FactorialCalc factorialCalc = new FactorialCalc();
         assertEquals(BigInteger.valueOf(1), factorialCalc.calculate(0));
     }
+
     @Test
     public void factorialTestTwo() {
-       FactorialCalc factorialCalc = new FactorialCalc();
-       assertEquals(BigInteger.valueOf(1), factorialCalc.calculate(1));
+        FactorialCalc factorialCalc = new FactorialCalc();
+        assertEquals(BigInteger.valueOf(1), factorialCalc.calculate(1));
     }
+
     @Test
     public void factorialTestThree() {
         FactorialCalc factorialCalc = new FactorialCalc();
@@ -24,11 +29,10 @@ class FactorialCalcTest {
         FactorialCalc factorialCalc = new FactorialCalc();
         assertEquals(BigInteger.valueOf(5040), factorialCalc.calculate(7));
     }
+
     @Test
     public void factorialTestFive() {
         FactorialCalc factorialCalc = new FactorialCalc();
-        assertThrows(FactorialDataException.class, () -> {
-           factorialCalc.calculate(-3);
-        });
+        assertThrows(FactorialDataException.class, () -> factorialCalc.calculate(-3));
     }
 }
