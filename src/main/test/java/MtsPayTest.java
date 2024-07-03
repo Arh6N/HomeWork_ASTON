@@ -22,7 +22,7 @@ public class MtsPayTest {
     }
 
     @Test
-    public void testBlockTitle() {
+    public void payBlockFieldsTest() {
         WebElement connectionPhoneNumber = driver.findElement(By.xpath("//*[contains(@id, 'connection-phone')]"));
         WebElement connectionSum = driver.findElement(By.xpath("//*[contains(@id, 'connection-sum')]"));
         WebElement connectionEmail = driver.findElement(By.xpath("//*[contains(@id, 'connection-email')]"));
