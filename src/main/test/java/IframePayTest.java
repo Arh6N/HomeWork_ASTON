@@ -1,42 +1,29 @@
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class IframePayTest {
-    private static WebDriver driver;
-    private static final String phoneNumber = "297777777";
-    private static final String sum = "300";
+public class IframePayTest extends Configuration {
 
-    @BeforeAll
-    public static void authorisation() {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.get("http://mts.by");
-        WebElement cookie = driver.findElement(By.xpath("//*[contains(@id, 'cookie-agree')]"));
-        cookie.click();
-        WebElement phoneInputField = driver.findElement(By.xpath("//*[contains(@id, 'connection-phone')]"));
-        WebElement sumInputField = driver.findElement(By.xpath("//*[contains(@id, 'connection-sum')]"));
-        WebElement continueButton = driver.findElement(By.xpath("//*[contains(@id, 'pay-connection')]/button"));
-        phoneInputField.click();
-        phoneInputField.sendKeys(phoneNumber);
-        sumInputField.click();
-        sumInputField.sendKeys(sum);
-        continueButton.click();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+    @BeforeEach
+    public void createNewDriver() {
+        driver = openPage();
+        testData("297777777", "250");
         WebElement iframeElement = driver.findElement(By.xpath("//*[contains(@class, 'bepaid-iframe')]"));
         driver.switchTo().frame(iframeElement);
+    }
+
+    @AfterEach
+    public void closeNewDriver() {
+        closeDriver();
     }
 
     @Test
@@ -71,9 +58,6 @@ public class IframePayTest {
         assertEquals(payPartnersExpected, payPartnersNew);
     }
 
-    @AfterAll
-    public static void closeChrome() {
-        driver.close();
-    }
+
 }
 

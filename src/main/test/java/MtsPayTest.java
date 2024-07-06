@@ -1,25 +1,24 @@
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class MtsPayTest {
-    private static WebDriver driver;
+public class MtsPayTest extends Configuration {
 
-    @BeforeAll
-    public static void authorisation() {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.get("http://mts.by");
-        WebElement cookie = driver.findElement(By.xpath("//*[contains(@id, 'cookie-agree')]"));
-        cookie.click();
+    @BeforeEach
+    public void createDriverAndPage() {
+        openPage();
     }
+
+    @AfterEach
+    public void driverClose() {
+        closeDriver();
+    }
+
 
     @Test
     public void payBlockFieldsTest() {
@@ -49,11 +48,6 @@ public class MtsPayTest {
                 () -> assertEquals("Сумма", arrearsSum.getAttribute("placeholder")),
                 () -> assertEquals("E-mail для отправки чека", arrearsEmail.getAttribute("placeholder"))
         );
-    }
-
-    @AfterAll
-    public static void closeChrome() {
-        driver.close();
     }
 }
 
