@@ -1,5 +1,7 @@
+import io.qameta.allure.Description;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -27,6 +29,8 @@ public class IframePayTest extends Configuration {
     }
 
     @Test
+    @DisplayName("Тестирование полей ввода для оплаты услуг связи")
+    @Description("Тест проверяет текст в незаполненных полях и указанные номер телефона и сумму пополнения")
     public void iframePayFieldsTest() {
 
         WebElement sumPay = driver.findElement(By.xpath("//*[contains(@class, 'pay-description__cost')]/span[1]"));
@@ -48,6 +52,8 @@ public class IframePayTest extends Configuration {
     }
 
     @Test
+    @DisplayName("Проверка наличия логотипов платёжных систем")
+    @Description("Тест проверяет наличие логотипов платёжных систем в поле ввода номера карты")
     public void iframePayLogoTest() {
         List<WebElement> payPartners = driver.findElements(By.xpath("//*[contains(@class, 'cards-brands ng-tns-c46-1')]//div/img"));
         List<String> payPartnersExpected = new ArrayList<>(Arrays.asList("https://checkout.bepaid.by/widget_v2/assets/images/payment-icons/card-types/mastercard-system.svg", "https://checkout.bepaid.by/widget_v2/assets/images/payment-icons/card-types/visa-system.svg", "https://checkout.bepaid.by/widget_v2/assets/images/payment-icons/card-types/belkart-system.svg", "https://checkout.bepaid.by/widget_v2/assets/images/payment-icons/card-types/mir-system-ru.svg", "https://checkout.bepaid.by/widget_v2/assets/images/payment-icons/card-types/maestro-system.svg"));

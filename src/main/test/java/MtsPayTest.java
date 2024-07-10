@@ -1,5 +1,8 @@
+import io.qameta.allure.Allure;
+import io.qameta.allure.Description;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -21,6 +24,8 @@ public class MtsPayTest extends Configuration {
 
 
     @Test
+    @DisplayName("Тестирование надписей в незаполненных полях для каждого варианта оплаты услуг")
+    @Description("Тест проверяет надписи в незаполненных полях для оплаты услуг: услуги связи, домашний телефон, рассрочка, задолжность")
     public void payBlockFieldsTest() {
         WebElement connectionPhoneNumber = driver.findElement(By.xpath("//*[contains(@id, 'connection-phone')]"));
         WebElement connectionSum = driver.findElement(By.xpath("//*[contains(@id, 'connection-sum')]"));
